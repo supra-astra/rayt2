@@ -9,8 +9,8 @@ ccflags := "-Wall -O3 -march=native"
 
 # Build the binary
 build:
-	mkdir -p build
-	gcc {{ccflags}} {{src}} -o {{out}}
+	mkdir -p $(dirname {{out}})
+	gcc {{ccflags}} {{src}} -o {{out}} -DLOG_USE_COLOR
 
 # Run the binary
 run: build
@@ -19,7 +19,7 @@ run: build
 # Clean build artifacts
 clean:
 	rm -rf build
-	
+
 
 default:
     echo 'raytv2'
